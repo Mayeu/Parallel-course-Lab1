@@ -1,0 +1,14 @@
+\chapter{Derived datatypes}
+
+The function \textit{MPI\_Type\_vector} allows the user to create a derived datatype. In our case, we want to create a datatype representing the quater of a matrix having \textit{nx} lines and \textit{ny} columns.
+
+The main parameters are defined as follows (given a type for the elements in the array, like \textit{MPI\_Double} in our case):
+\begin{description}
+	\item[count:] indicates the number of blocks in our datatype
+	\item[blocklength:] indicates the length of a block
+	\item[stride:] indicates the number of elements between the beginning of each block
+\end{description}
+So, when we will ask the system to transer such a datatype, it will transfer \textit{count} blocks of \textit{blocklength} elements, the first element of each block being separated from the next one by \textit{stride} elements. Thus, using the values \textit{count} = \textit{nx}/2, \textit{blocklength} = \textit{ny}/2 and \textit{stride} = \textit{ny}, we get a derived datatype representing a quater of our matrix.
+
+The result of the program being huge, it has not been included here.
+

@@ -1,0 +1,7 @@
+\chapter{Point-to-point communication}
+
+\section{Work on \textit{exchange.c}}
+
+The main advantage of using non-blocking calls is that it becomes possible to overlap communication and computation. Indeed, those calls start the process of sending or receiving and return without completing it. The caller is then free to do some other computation during the communication and is not blocked until the end of the communication, as it is the case with a blocking call. The main drawback is that the programmer must make sure not to alter the sending/receiving buffer because they are being used even after the non-blocking call has returned. This makes programming harder.
+
+\section{Work on \textit{pingpong.c}}
