@@ -12,6 +12,20 @@ As can be seen in the following picture, the \textit{pass-on} method has been su
 
 \section{Fan-out}
 
+Like the last version we print the rank of the sender. In this version we set the number of step with:
+$$ceil(ln(NP))$$
+where $NP$ is the total number of processor.
+
+At each step we define the senders as:
+$$S_{step}=\{\sqqs p, rank < 2^{step} \sand rank + 2^{step} < NP\}$$
+where $p$ is a processor. This disallow processor who did not receive data to send, and processor who will send data to an non-existant processor.
+
+Following the same principe we define the receivers as:
+$$R_{step}=\{\sqqs p, rank < 2^{step+1} \sand rank - 2^{step} \ge 0\}$$
+by using this, only processor that will receive a message at this step will fetch it message.\\
+
+There is the output of our implementation:
+
 \begin{verbatim}
 Lain-ux@nyarlathothep:code > mpirun -np 8 a.out 
 Processor 1 got 999.999000 from 0
@@ -22,6 +36,8 @@ Processor 5 got 999.999000 from 1
 Processor 6 got 999.999000 from 2
 Processor 7 got 999.999000 from 3
 \end{verbatim}
+
+As we can see, not everybody send messages.
 
 \section{Broadcast}
 

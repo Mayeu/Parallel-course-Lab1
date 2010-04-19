@@ -21,8 +21,10 @@ int main(int argc, char *argv[]) {
   a = 999.999;
   int k = ceil(log2(size));
   int distance;
+
   for(i=0;i<k;i++){
     distance = pow(2,i);
+	 
     if(rank < distance && rank+distance < size)
       MPI_Send(&a,1,MPI_DOUBLE,rank+distance,rank,MPI_COMM_WORLD);
     else if(rank < 2*distance && rank-distance >= 0){
