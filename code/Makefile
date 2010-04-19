@@ -22,6 +22,12 @@ pingpong:       pingpong.c
 onetoall:          onetoall.c
 	$(CC) $(CCFLAGS) -o onetoall onetoall.c $(LIBS)
 
+fanout:          fanout.c
+	$(CC) $(CCFLAGS) -o fanout fanout.c $(LIBS)
+
+onetoall_glob:          onetoall_glob.c
+	$(CC) $(CCFLAGS) -o onetoall_glob onetoall_glob.c $(LIBS)
+
 pi:             pi.c
 	$(CC) $(CCFLAGS) -o pi pi.c $(LIBS)
 
