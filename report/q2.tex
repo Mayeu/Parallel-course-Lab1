@@ -5,3 +5,18 @@
 The main advantage of using non-blocking calls is that it becomes possible to overlap communication and computation. Indeed, those calls start the process of sending or receiving and return without completing it. The caller is then free to do some other computation during the communication and is not blocked until the end of the communication, as it is the case with a blocking call. The main drawback is that the programmer must make sure not to alter the sending/receiving buffer because they are being used even after the non-blocking call has returned. This makes programming harder.
 
 \section{Work on \textit{pingpong.c}}
+
+By tracing the data we obtain:
+
+%\begin{figure}[h]
+  \begin{center}
+	 \psfig{figure=pic/ex2.eps}
+  \end{center}
+%  \caption{}
+%  \label{fig:}
+%\end{figure}
+
+The average latency is: $6.8794us$. And the average bandwidth: $522.1591 MB.s^{-1}$.
+
+The graph is linear, showing that the latency between sending and receiving a message is constant during the whole send/reicv programm.
+
