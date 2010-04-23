@@ -12,17 +12,17 @@ As can be seen in the following picture, the \textit{pass-on} method has been su
 
 \section{Fan-out}
 
-Like the last version we print the rank of the sender. In this version we set the number of step with:
+Like the last version we print the rank of the sender. In this version we set the number of steps with:
 $$ceil(ln(NP))$$
-where $NP$ is the total number of processor.
+where $NP$ is the total number of processors.
 
 At each step we define the senders as:
 $$S_{step}=\{\sqqs p, rank < 2^{step} \sand rank + 2^{step} < NP\}$$
-where $p$ is a processor. This disallow processor who did not receive data to send, and processor who will send data to an non-existant processor.
+where $p$ is a processor. This disallows processors which did not receive data to send, and processors which will send data to a non-existant processor.
 
-Following the same principe we define the receivers as:
+Following the same principle we define the receivers as:
 $$R_{step}=\{\sqqs p, rank < 2^{step+1} \sand rank - 2^{step} \ge 0\}$$
-by using this, only processor that will receive a message at this step will fetch it message.\\
+by using this, only processors that will receive a message at this step will fetch the message.\\
 
 There is the output of our implementation:
 
@@ -37,7 +37,7 @@ Processor 6 got 999.999000 from 2
 Processor 7 got 999.999000 from 3
 \end{verbatim}
 
-As we can see, not everybody send messages.
+As we can see, not everybody sends messages.
 
 \section{Broadcast}
 
